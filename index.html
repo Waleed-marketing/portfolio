@@ -9,55 +9,6 @@
     <link rel="stylesheet" href="mediaqueries.css" />
     <link href='https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap' rel='stylesheet'>
     <link rel="icon" href="./assets/favog.png" type="image/png">
-    <script>
-      const nameText = "Waleed Iqbal Butt";
-      const nameElement = document.getElementById("name");
-      let index = 0;
-    
-      function typeName() {
-        if (index < nameText.length) {
-          nameElement.innerHTML += nameText.charAt(index);
-          index++;
-          setTimeout(typeName, 100);
-        }
-      }
-    
-      window.onload = function () {
-        typeName();
-      };
-    </script>
-    <script>
-      const roles = ["Full Stack Digital Marketer", "Performance Ads Expert", "Growth Strategist"];
-      const roleElement = document.getElementById("role");
-    
-      let roleIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-    
-      function typeRole() {
-        const currentRole = roles[roleIndex];
-        
-        if (isDeleting) {
-          roleElement.innerHTML = currentRole.substring(0, charIndex--);
-        } else {
-          roleElement.innerHTML = currentRole.substring(0, charIndex++);
-        }
-    
-        let speed = isDeleting ? 50 : 100;
-    
-        if (!isDeleting && charIndex === currentRole.length) {
-          speed = 1500;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
-    
-        setTimeout(typeRole, speed);
-      }
-    
-      setTimeout(typeRole, 2000);
-    </script>
   </head>
   
   <body>
@@ -465,5 +416,54 @@
       <p>Copyright &#169; 2024-2026 Waleed Iqbal Butt. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
+        <script>
+      const nameText = "Waleed Iqbal Butt";
+      const nameElement = document.getElementById("name");
+      let index = 0;
+    
+      function typeName() {
+        if (index < nameText.length) {
+          nameElement.innerHTML += nameText.charAt(index);
+          index++;
+          setTimeout(typeName, 100);
+        }
+      }
+    
+      window.onload = function () {
+        typeName();
+      };
+    </script>
+    <script>
+      const roles = ["Full Stack Digital Marketer", "Performance Ads Expert", "Growth Strategist"];
+      const roleElement = document.getElementById("role");
+    
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+    
+      function typeRole() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+          roleElement.innerHTML = currentRole.substring(0, charIndex--);
+        } else {
+          roleElement.innerHTML = currentRole.substring(0, charIndex++);
+        }
+    
+        let speed = isDeleting ? 50 : 100;
+    
+        if (!isDeleting && charIndex === currentRole.length) {
+          speed = 1500;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+    
+        setTimeout(typeRole, speed);
+      }
+    
+      setTimeout(typeRole, 2000);
+    </script>
   </body>
 </html>
