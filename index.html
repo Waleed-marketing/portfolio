@@ -9,7 +9,57 @@
     <link rel="stylesheet" href="mediaqueries.css" />
     <link href='https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap' rel='stylesheet'>
     <link rel="icon" href="./assets/favog.png" type="image/png">
+    <script>
+      const nameText = "Waleed Iqbal Butt";
+      const nameElement = document.getElementById("name");
+      let index = 0;
+    
+      function typeName() {
+        if (index < nameText.length) {
+          nameElement.innerHTML += nameText.charAt(index);
+          index++;
+          setTimeout(typeName, 100);
+        }
+      }
+    
+      window.onload = function () {
+        typeName();
+      };
+    </script>
+    <script>
+      const roles = ["Full Stack Digital Marketer", "Performance Ads Expert", "Growth Strategist"];
+      const roleElement = document.getElementById("role");
+    
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+    
+      function typeRole() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+          roleElement.innerHTML = currentRole.substring(0, charIndex--);
+        } else {
+          roleElement.innerHTML = currentRole.substring(0, charIndex++);
+        }
+    
+        let speed = isDeleting ? 50 : 100;
+    
+        if (!isDeleting && charIndex === currentRole.length) {
+          speed = 1500;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+    
+        setTimeout(typeRole, speed);
+      }
+    
+      setTimeout(typeRole, 2000);
+    </script>
   </head>
+  
   <body>
     <nav id="desktop-nav">
         <div class="logo" onclick="location.href='https://www.upwork.com/freelancers/~01958254216aef3537'">
@@ -49,9 +99,15 @@
         <img src="./assets/image-placeholder.png" alt="Waleed Butt profile picture" />
       </div>
       <div class="section__text">
-        <p class="section__text__p1">Hello👋, I'm</p>
-        <h1 class="title">Waleed Iqbal Butt</h1>
-        <p class="section__text__p2">Full Stack Digital Marketer</p>
+        <p class="section__text__p1">
+          Hello <span class="wave">👋</span>, I'm
+        </p>
+        <h1 class="title">
+          <span id="name"></span>
+        </h1>
+        <p class="section__text__p2">
+          <span id="role"></span>
+        </p> 
         <div class="btn-container">
           <!-- <button
             class="btn btn-color-2"
